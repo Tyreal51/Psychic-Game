@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>The Psychic Game</title>
+  
 </head>
 
 <body>
@@ -17,22 +18,21 @@
     var youWin = 0;
     var youLose = 0;
     var guessesLeft = 9;
-    var guessedLetters = []; //Array to capture user letter input
+    var guessedLetters = []; 
     document.onkeyup = function(event) {
-      var yourGuess = event.key; //variable to capute user's guess
-      guessedLetters.push(yourGuess); //This is suppose to capture letters     entered by the user    
+      var yourGuess = event.key; 
+      guessedLetters.push(yourGuess);     
       var psychicAns = psychicLetters[Math.floor(Math.random() * psychicLetters.length)];
-      //If your guess matches the psychic's guess,
-      //a point is added to the "Wins" tally and the guesses tally restarts.
+      
       if (yourGuess === psychicAns) {
         youWin++;
         guessesLeft = 9;
       }
-      //If your does not not match the psychic's guess, your number of  guesses  remaining are deducted.
+      
       else {
         guessesLeft--;
       }
-      //If the guesses remaining equals 0, you lose, an increment is added to  the "Losses" tally and the points restart.
+      
       if (guessesLeft === 0) {
         youLose++;
         guessesLeft = 9;
@@ -41,12 +41,12 @@
         "<p>Wins: " + youWin + "</p>" +
         "<p>Loses: " + youLose + "</p>" +
         "<p>Guesses Remaining: " + guessesLeft + "</p>" +
-        "<p>Guessed Letter: " + guessedLetters.join(', ') + "</p>" ; //Show guessed     letters heredocument.querySelector("#psychicAct").innerHTML = html;
+        "<p>Guessed Letter: " + guessedLetters.join(', ') + "</p>" ; 
         
         document.getElementById("results").innerHTML = html;
     }
   </script>
-
+  <!-- I tried to attach an external .js file but I could not get it to work, so I left all javascript inline. I did not attach an external css file because there is no styling to the doc -->
 </body>
 
 </html>
